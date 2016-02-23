@@ -12,7 +12,7 @@ https://nodejs.org/en/download/
 ## Running the application
 1. Execute next command:
 ```node app.js```
-2. Open in browser
+2. Open in your browser:
 http://localhost:3000/posts.html
 
 ## Useful links
