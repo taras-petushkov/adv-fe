@@ -1,0 +1,16 @@
+{
+  "name": "adv-fe",
+  "description": "More details about the course can be found on http://frontend-science.com/advanced/.",
+  "main": "",
+  "authors": [
+    "Petushkov Taras"
+  ],
+  "homepage": "https://github.com/taras-petushkov/adv-fe",
+  "dependencies": {
+    "jquery": "2.2.1",
+    "underscore": "1.8.3",
+    "backbone": "^1.x",
+    "react": ">0.1.0",
+    "angular": "x"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "adv-fe",
+    "version": "1.0.0",
+    "description": "More details about the course can be found on http://frontend-science.com/advanced/.",
+    "author": "Petushkov Taras",
+    "dependencies": {
+        "express": "^4.13.3"
+    },
+    "devDependencies": {
+        "bower": "^1.7.7"
+    }
+}
