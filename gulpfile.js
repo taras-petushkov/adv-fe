@@ -18,7 +18,14 @@ var libDir = buildDir + '/lib';
 var clientDir = buildDir + '/client';
 var clientStaticDir = clientDir + '/static';
 var clientLibDir = clientDir + "/lib";
-var isProd = argv.prod
+var isProd = argv.prod;
+
+var path = {
+    static: srcDir + '/**/*.{html,png,jpg,svg}',
+    scripts: [srcDir + '/blocks/**/*.js', srcDir + '/*.js'],
+    templates: srcDir + '/blocks/**/*.hbs',
+    css: srcDir + '/**/*.less'
+}
 
 gulp.task('default', function (cb) {
     runSequence('clean', 'bower', 'libs', 'build', cb);
@@ -35,12 +42,12 @@ gulp.task('libs', function () {
 });
 
 gulp.task('copy-static', function () {
-    return gulp.src(srcDir + '/**/*.{html,png,jpg,svg}')
+    return gulp.src(path.static)
         .pipe(gulp.dest(clientDir));
 });
 
 gulp.task('css', function () {
-    return gulp.src(srcDir + '/**/*.css')
+    return gulp.src(path.css)
         .pipe(concat('styles.css'))
         .pipe(less())
         .pipe(gulpIf(isProd, cssnano()))
@@ -48,7 +55,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('templates', function () {
-    return gulp.src(srcDir + '/blocks/**/*.hbs')
+    return gulp.src(path.templates)
         .pipe(handlebars())
         .pipe(wrap('Handlebars.template(<%= contents %>)'))
         .pipe(declare({
@@ -60,7 +67,7 @@ gulp.task('templates', function () {
 });
 
 gulp.task('scripts', function () {
-    gulp.src([srcDir +'/blocks/**/*.js', srcDir + '/*.js'])
+    gulp.src(path.scripts)
         .pipe(concat('app.js'))
         .pipe(gulpIf(isProd, uglify()))
         .pipe(gulp.dest(clientDir));
@@ -74,6 +81,13 @@ gulp.task('build', function (cb) {
         'css',
         cb
     );
+});
+
+gulp.task('watch', function () {
+    gulp.watch(path.scripts, ['scripts']);
+    gulp.watch(path.templates, ['templates']);
+    gulp.watch(path.css, ['css']);
+    gulp.watch(path.static, ['copy-static']);
 });
 
 gulp.task('clean', function () {
