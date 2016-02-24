@@ -1,2 +1,4 @@
 *.iml
 .idea
+src/lib
+node_modules

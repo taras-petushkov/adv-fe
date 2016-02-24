@@ -1,0 +1,18 @@
+{
+    "name": "adv-fe",
+    "version": "1.0.0",
+    "description": "More details about the course can be found on http://frontend-science.com/advanced/.",
+    "author": "Petushkov Taras",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "4.13.3"
+    },
+    "devDependencies": {
+        "bower": "1.7.7",
+        "gulp": "3.9.1",
+        "gulp-clean": "0.3.1",
+        "run-sequence": "1.1.5"
+    }
+}
