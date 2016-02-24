@@ -15,6 +15,14 @@ https://nodejs.org/en/download/
 2. Open in your browser:
 http://localhost:3000/posts.html
 
+
+## Useful commands
+Adding dependency to package.json
+```npm install bower --save```
+
+Adding dev dependency to package.json
+```npm install gulp-clean --save-dev```
+
 ## Useful links
 + [Calendar] (http://frontend-science.com/advanced/calendar.html)
 + TODO - add few more links here

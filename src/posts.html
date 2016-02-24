@@ -35,7 +35,7 @@
 
 <script type="text/x-handlebars-template" id="posts-container__list-template">
     {{#each posts}}
-    {{> post-preview class="posts-container__post" }}
+        {{> post-preview class="posts-container__post" }}
     {{/each}}
 </script>
 
@@ -53,10 +53,10 @@
 <script type="text/x-handlebars-template" id="posts-container__navigation-template">
     <div class="posts-container__navigation-numbers">
         {{#nav count selected}}
-        <div data-id="{{number}}"
-             class="posts-container__navigation-number {{#if selected}}posts-container__navigation-number_selected{{/if}}">
-            {{number}}
-        </div>
+            <div data-id="{{number}}"
+                 class="posts-container__navigation-number {{#if selected}}posts-container__navigation-number_selected{{/if}}">
+                {{number}}
+            </div>
         {{/nav}}
     </div>
 </script>

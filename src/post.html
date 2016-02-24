@@ -24,13 +24,13 @@
         <div class="related-posts__list"></div>
     </div>
 
-<div class="footer"></div>
+    <div class="footer"></div>
 </div>
 
 
 <script type="text/x-handlebars-template" id="selected-post-template">
     {{#with post}}
-    {{> post-preview class='selected-post__post'}}
+        {{> post-preview class='selected-post__post'}}
     {{/with}}
     {{> comments class='selected-post__comments' item-class="selected-post__comment"}}
 </script>
@@ -38,7 +38,7 @@
 <script type="text/x-handlebars-template" id="comments-template">
     <div class="{{class}}">
         {{#each comments}}
-        {{> comment class=../item-class }}
+            {{> comment class=../item-class }}
         {{/each}}
     </div>
 </script>
@@ -51,7 +51,7 @@
 
 <script type="text/x-handlebars-template" id="related-posts__list-template">
     {{#each posts}}
-    {{> post-preview class="related-posts__post" }}
+        {{> post-preview class="related-posts__post" }}
     {{/each}}
 </script>
 
