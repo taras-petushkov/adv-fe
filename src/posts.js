@@ -7,25 +7,16 @@ $(document).ready(function () {
     var postsTemplate = App.templates['posts-container__list'];
     var navigationTemplate = App.templates['posts-container__navigation'];
 
-    Handlebars.registerHelper("nav", function (count, selected, options) {
+    Handlebars.registerHelper('nav', function (count, selected, options) {
         var numbers = '';
         Array.apply(null, new Array(count))
             .forEach(
                 function (v, i) {
-                    numbers += options.fn({number: i + 1, selected: selectedPage == i});
+                    numbers += options.fn({ number: i + 1, selected: selectedPage === i });
                 }
             );
         return numbers;
     });
-
-
-    render();
-
-    function render() {
-        renderPosts();
-        renderNavigation();
-        subscribeHandlers();
-    }
 
     function renderPosts() {
         $('.posts-container__list').html(postsTemplate({
@@ -46,9 +37,8 @@ $(document).ready(function () {
             if (id === undefined) {
                 return;
             }
-            window.location = "/post.html?id=" + id;
+            window.location = '/post.html?id=' + id;
         });
-
         $('.posts-container__navigation').click(function (event) {
             var selected = $(event.target).data('id') - 1;
             if (selected === selectedPage) {
@@ -60,7 +50,17 @@ $(document).ready(function () {
             renderPosts();
             renderNavigation();
 
-            $('html, body').animate({scrollTop: 0}, 0);
+            $('html, body').animate({ scrollTop: 0 }, 0);
         });
+
     }
+
+    function render() {
+        renderPosts();
+        renderNavigation();
+        subscribeHandlers();
+    }
+
+    render();
 });
+

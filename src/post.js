@@ -8,13 +8,6 @@ $(document).ready(function () {
     var relatedPostsTemplate = App.templates['related-posts'];
 
 
-    render();
-
-    function render() {
-        renderPost();
-        renderRelatedPosts();
-        subscribeHandlers();
-    }
 
     function renderPost() {
         $('.post').html(postTemplate({
@@ -24,7 +17,7 @@ $(document).ready(function () {
     }
 
     function renderRelatedPosts() {
-        $('.related-posts').html(relatedPostsTemplate({posts: relatedPosts}));
+        $('.related-posts').html(relatedPostsTemplate({ posts: relatedPosts }));
     }
 
     function subscribeHandlers() {
@@ -33,7 +26,15 @@ $(document).ready(function () {
             if (id === undefined) {
                 return;
             }
-            window.location = "/post.html?id=" + id;
+            window.location = '/post.html?id=' + id;
         });
     }
+
+    function render() {
+        renderPost();
+        renderRelatedPosts();
+        subscribeHandlers();
+    }
+
+    render();
 });

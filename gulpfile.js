@@ -11,6 +11,9 @@ var handlebars = require('gulp-handlebars');
 var declare = require('gulp-declare');
 var wrap = require('gulp-wrap');
 var uglify = require('gulp-uglify');
+var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
+var htmlhint = require("gulp-htmlhint");
 
 var srcDir = 'src';
 var buildDir = 'build';
@@ -21,6 +24,7 @@ var clientLibDir = clientDir + "/lib";
 var isProd = argv.prod;
 
 var path = {
+    html: srcDir + '/**/*.html',
     static: srcDir + '/**/*.{html,png,jpg,svg}',
     scripts: [srcDir + '/blocks/**/*.js', srcDir + '/*.js'],
     templates: srcDir + '/blocks/**/*.hbs',
@@ -72,6 +76,35 @@ gulp.task('scripts', function () {
         .pipe(gulpIf(isProd, uglify()))
         .pipe(gulp.dest(clientDir));
 });
+
+gulp.task('style-jscs', function () {
+    return gulp.src(path.scripts)
+        .pipe(jscs({fix: true}))
+        .pipe(gulp.dest(srcDir));
+});
+
+gulp.task('style-jshint', function () {
+    return gulp.src(path.scripts)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default', { verbose: true }))
+        .pipe(jshint.reporter('fail'))
+});
+
+gulp.task('style-htmlhint', function () {
+    gulp.src(path.html)
+        .pipe(htmlhint())
+        .pipe(htmlhint.failReporter())
+});
+
+gulp.task('style', function (cb) {
+    runSequence(
+        'style-jscs',
+        'style-jshint',
+        'style-htmlhint',
+        cb
+    );
+});
+
 
 gulp.task('build', function (cb) {
     runSequence(
