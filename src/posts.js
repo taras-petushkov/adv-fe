@@ -1,13 +1,12 @@
 $(document).ready(function () {
+
     var posts = Data.getPosts();
+    var selectedPage = 0;
+    var perPage = 12;
 
     var postsTemplate = Handlebars.templates['posts-container__list.hbs'];
     var navigationTemplate = Handlebars.templates['posts-container__navigation.hbs'];
 
-    var selectedPage = 0;
-    var perPage = 12;
-
-    Handlebars.registerPartial('post-preview', Handlebars.templates['post-preview.hbs']);
     Handlebars.registerHelper("nav", function (count, selected, options) {
         var numbers = '';
         Array.apply(null, new Array(count))
@@ -18,6 +17,7 @@ $(document).ready(function () {
             );
         return numbers;
     });
+
 
     render();
 

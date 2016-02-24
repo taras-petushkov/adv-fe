@@ -1,17 +1,11 @@
 $(document).ready(function () {
 
-
-
     var currentPost = Data.getCurrentPost();
     var comments = Data.getPostComments();
     var relatedPosts = Data.getRelatedPosts();
 
     var postTemplate = Handlebars.templates['post.hbs'];
     var relatedPostsTemplate = Handlebars.templates['related-posts.hbs'];
-
-    Handlebars.registerPartial('comment', Handlebars.templates['comment.hbs']);
-    Handlebars.registerPartial('comments', Handlebars.templates['comments.hbs']);
-    Handlebars.registerPartial('post-preview', Handlebars.templates['post-preview.hbs']);
 
 
     render();
