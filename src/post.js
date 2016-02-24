@@ -4,8 +4,8 @@ $(document).ready(function () {
     var comments = Data.getPostComments();
     var relatedPosts = Data.getRelatedPosts();
 
-    var postTemplate = Handlebars.templates['post.hbs'];
-    var relatedPostsTemplate = Handlebars.templates['related-posts.hbs'];
+    var postTemplate = App.templates['post'];
+    var relatedPostsTemplate = App.templates['related-posts'];
 
 
     render();

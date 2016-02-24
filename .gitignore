@@ -2,3 +2,4 @@
 .idea
 src/lib
 node_modules
+build

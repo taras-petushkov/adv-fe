@@ -1,3 +1,3 @@
 (function () {
-    Handlebars.registerPartial('comments', Handlebars.templates['comments.hbs']);
+    Handlebars.registerPartial('comments', App.templates['comments']);
 })();

@@ -4,8 +4,8 @@ $(document).ready(function () {
     var selectedPage = 0;
     var perPage = 12;
 
-    var postsTemplate = Handlebars.templates['posts-container__list.hbs'];
-    var navigationTemplate = Handlebars.templates['posts-container__navigation.hbs'];
+    var postsTemplate = App.templates['posts-container__list'];
+    var navigationTemplate = App.templates['posts-container__navigation'];
 
     Handlebars.registerHelper("nav", function (count, selected, options) {
         var numbers = '';
