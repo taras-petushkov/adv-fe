@@ -1,13 +1,13 @@
 $(document).ready(function () {
     var posts = Data.getPosts();
 
-    var postsTemplate = Handlebars.compile($('#posts-container__list-template').html());
-    var navigationTemplate = Handlebars.compile($('#posts-container__navigation-template').html());
+    var postsTemplate = Handlebars.templates['posts-container__list.hbs'];
+    var navigationTemplate = Handlebars.templates['posts-container__navigation.hbs'];
 
     var selectedPage = 0;
     var perPage = 12;
 
-    Handlebars.registerPartial('post-preview', $('#post-preview-template').html());
+    Handlebars.registerPartial('post-preview', Handlebars.templates['post-preview.hbs']);
     Handlebars.registerHelper("nav", function (count, selected, options) {
         var numbers = '';
         Array.apply(null, new Array(count))

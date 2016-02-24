@@ -22,53 +22,15 @@
 
 <div class="footer"></div>
 
-
-<script type="text/x-handlebars-template" id="post-template">
-    {{#with post}}
-        <div class="post__img-wrapper">
-            <img class="post__img" src="{{imgUrl}}"/>
-        </div>
-        <div class="post__description">{{description}}</div>
-    {{/with}}
-    {{> comments class='post__comments'}}
-</script>
-
-<script type="text/x-handlebars-template" id="comments-template">
-    <div class="comments {{class}}">
-        {{#each comments}}
-            {{> comment}}
-        {{/each}}
-    </div>
-</script>
-
-<script type="text/x-handlebars-template" id="comment-template">
-    <div class="comment">
-        <b>{{username}}</b>:{{text}}
-    </div>
-</script>
-
-<script type="text/x-handlebars-template" id="related-posts-template">
-    {{#each posts}}
-        {{> post-preview class="related-posts__post" }}
-    {{/each}}
-</script>
-
-<!-- the same as in post.html TODO move it the separate file later or not?-->
-<script type="text/x-handlebars-template" id="post-preview-template">
-    <div class="post-preview {{class}}" data-id="{{id}}">
-        <div class="post-preview__island">
-            <div class="post-preview__img-wrapper">
-                <img class="post-preview__img" src="{{imgUrl}}"/>
-            </div>
-            <div class="post-preview__description">{{description}}</div>
-        </div>
-    </div>
-</script>
-
 <script src="lib/jquery/dist/jquery.js"></script>
 <script src="lib/handlebars/handlebars.js"></script>
 <script src="data.js"></script>
 <script src="post.js"></script>
+<script src="blocks/post/post.tmpl.js"></script>
+<script src="blocks/comments/comments.tmpl.js"></script>
+<script src="blocks/comment/comment.tmpl.js"></script>
+<script src="blocks/related-posts/related-posts.tmpl.js"></script>
+<script src="blocks/post-preview/post-preview.tmpl.js"></script>
 </body>
 
 </html>

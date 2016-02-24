@@ -1,14 +1,17 @@
 $(document).ready(function () {
+
+
+
     var currentPost = Data.getCurrentPost();
     var comments = Data.getPostComments();
     var relatedPosts = Data.getRelatedPosts();
 
-    var postTemplate = Handlebars.compile($('#post-template').html());
-    var relatedPostsTemplate = Handlebars.compile($('#related-posts-template').html());
+    var postTemplate = Handlebars.templates['post.hbs'];
+    var relatedPostsTemplate = Handlebars.templates['related-posts.hbs'];
 
-    Handlebars.registerPartial('comment', $('#comment-template').html());
-    Handlebars.registerPartial('comments', $('#comments-template').html());
-    Handlebars.registerPartial('post-preview', $('#post-preview-template').html());
+    Handlebars.registerPartial('comment', Handlebars.templates['comment.hbs']);
+    Handlebars.registerPartial('comments', Handlebars.templates['comments.hbs']);
+    Handlebars.registerPartial('post-preview', Handlebars.templates['post-preview.hbs']);
 
 
     render();

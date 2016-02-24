@@ -1,0 +1,8 @@
+<div class="posts-container__navigation-numbers">
+    {{#nav count selected}}
+    <div data-id="{{number}}"
+         class="posts-container__navigation-number {{#if selected}}posts-container__navigation-number_selected{{/if}}">
+        {{number}}
+    </div>
+    {{/nav}}
+</div>
