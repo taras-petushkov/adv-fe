@@ -15,10 +15,10 @@
         getPostComments: function () {
             return [{
                 username: 'Nick',
-                text: 'my comment'
+                text: "She's hot!"
             }, {
-                username: 'Alice',
-                text: 'Alice comment'
+                username: 'Taras',
+                text: '+1'
             }]
         },
         getCurrentPost: function () {

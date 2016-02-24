@@ -160,46 +160,31 @@ a {
     bottom: 0;
 }
 
-.post-wrapper {
-    margin: 0 auto;
-    width: 500px;
-}
-.related-posts {
-    width: 630px;
-    margin: 50px auto;
-}
-.related-posts__post {
-    display: inline-block;
-    vertical-align: top;
-}
-.related-post-preview {
-    width: 200px;
-}
-.related-post-preview__island {
-    color: #127287;
-    padding: 6px;
-    cursor: pointer;
-}
-.related-post-preview__description {
-    font-size: 12px;
-    line-height: 16px;
-    max-height: 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 4px 6px;
-}
-.related-post-preview__img-wrapper {
-    max-height: 150px;
-    overflow: hidden;
-}
-.related-post-preview__img {
-    cursor: pointer;
-    width: 100%;
+/* post.html related css */
+.selected-post {
+    padding-left: 13px;
+    margin-top: 25px;
 }
 
-.comments {
+.selected-post__post {
+    margin: 15px 10px;
+}
+
+.selected-post__comments {
     margin: 20px 0;
 }
-.comment {
+
+.selected-post__comment {
     margin: 10px 0;
+}
+
+.related-posts__list {
+    padding-left: 13px;
+    margin-top: 25px;
+}
+
+.related-posts__post {
+    margin: 15px 10px;
+    display: inline-block;
+    vertical-align: top;
 }
