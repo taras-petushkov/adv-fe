@@ -1,0 +1,10 @@
+.header {
+    height: 100px;
+    width: 600px;
+    margin: 15px auto;
+}
+
+.header__logo {
+    float: left;
+    display: inline-block;
+}

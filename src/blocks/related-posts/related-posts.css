@@ -1,0 +1,10 @@
+.related-posts {
+    padding-left: 13px;
+    margin-top: 25px;
+}
+
+.related-posts__post {
+    margin: 15px 10px;
+    display: inline-block;
+    vertical-align: top;
+}

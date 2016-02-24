@@ -1,0 +1,10 @@
+.page {
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 23px;
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
