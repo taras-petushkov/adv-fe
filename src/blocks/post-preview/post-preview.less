@@ -2,38 +2,40 @@
     width: 200px;
 
     &__island {
+        padding: 6px;
+
+        cursor: pointer;
+
         color: #127287;
         border: #ddd 1px solid;
-        padding: 6px;
         border-radius: 2px;
-        cursor: pointer;
     }
 
     &__island:hover {
-        background: #F5F5F5;
+        background: #f5f5f5;
     }
 
     &__description {
         font-size: 12px;
         line-height: 16px;
-        max-height: 50px;
+
         overflow: hidden;
-        text-overflow: ellipsis;
+
+        max-height: 50px;
         margin: 4px 6px;
+
+        text-overflow: ellipsis;
     }
 
     &__img-wrapper {
-        max-height: 300px;
         overflow: hidden;
+
+        max-height: 300px;
     }
 
     &__img {
-        cursor: pointer;
         width: 100%;
+
+        cursor: pointer;
     }
 }
-
-
-
-
-

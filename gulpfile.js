@@ -1,7 +1,9 @@
 var argv = require('yargs').argv;
+var autoprefixer = require('gulp-autoprefixer');
 var bower = require('gulp-bower');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
+var csscomb = require('gulp-csscomb');
 var cssnano = require('gulp-cssnano');
 var debug = require('gulp-debug');
 var declare = require('gulp-declare');
@@ -81,6 +83,7 @@ gulp.task('css', function () {
         .pipe(concat('styles.css'))
         .pipe(less())
         .pipe(sourcemaps.init())
+        .pipe(autoprefixer())
         .pipe(gulpif(isProd, cssnano()))
         .pipe(sourcemaps.write(cssMapDir))
         .pipe(gulp.dest(clientStaticDir));
@@ -119,7 +122,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('style', function (cb) {
-    runSequence('style-jscs', 'style-jshint', 'style-htmlhint', cb);
+    runSequence('style-jscs', 'style-csscomb', 'style-jshint', 'style-htmlhint', cb);
 });
 
 function gitmodified() {
@@ -131,6 +134,14 @@ gulp.task('style-jscs', function () {
         .pipe(gulpif(!isAll, gitmodified()))
         .pipe(debug({ title: 'jscs' }))
         .pipe(jscs({ fix: true }))
+        .pipe(gulp.dest(srcDir));
+});
+
+gulp.task('style-csscomb', function () {
+    return gulp.src(path.css)
+        .pipe(gulpif(!isAll, gitmodified()))
+        .pipe(debug({ title: 'csscomb' }))
+        .pipe(csscomb())
         .pipe(gulp.dest(srcDir));
 });
 
