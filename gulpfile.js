@@ -16,6 +16,7 @@ var htmlmin = require('gulp-htmlmin');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
+var livereload = require('gulp-livereload');
 var runSequence = require('run-sequence');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
@@ -70,12 +71,14 @@ gulp.task('copy-static', function (cb) {
 gulp.task('copy-html', function () {
     return gulp.src(path.html)
         .pipe(gulpif(isProd, htmlmin({ collapseWhitespace: true })))
-        .pipe(gulp.dest(clientDir));
+        .pipe(gulp.dest(clientDir))
+        .pipe(livereload());
 });
 
 gulp.task('copy-images', function () {
     return gulp.src(path.images)
-        .pipe(gulp.dest(clientDir));
+        .pipe(gulp.dest(clientDir))
+        .pipe(livereload());
 });
 
 gulp.task('css', function () {
@@ -86,7 +89,8 @@ gulp.task('css', function () {
         .pipe(autoprefixer())
         .pipe(gulpif(isProd, cssnano()))
         .pipe(sourcemaps.write(cssMapDir))
-        .pipe(gulp.dest(clientStaticDir));
+        .pipe(gulp.dest(clientStaticDir))
+        .pipe(livereload());
 });
 
 gulp.task('templates', function () {
@@ -101,7 +105,8 @@ gulp.task('templates', function () {
         .pipe(sourcemaps.init())
         .pipe(gulpif(isProd, uglify()))
         .pipe(sourcemaps.write(jsMapDir))
-        .pipe(gulp.dest(clientDir));
+        .pipe(gulp.dest(clientDir))
+        .pipe(livereload());
 });
 
 gulp.task('scripts', function () {
@@ -110,10 +115,12 @@ gulp.task('scripts', function () {
         .pipe(sourcemaps.init())
         .pipe(gulpif(isProd, uglify()))
         .pipe(sourcemaps.write(jsMapDir))
-        .pipe(gulp.dest(clientDir));
+        .pipe(gulp.dest(clientDir))
+        .pipe(livereload());
 });
 
 gulp.task('watch', function () {
+    livereload.listen();
     gulp.watch(path.scripts, ['scripts']);
     gulp.watch(path.templates, ['templates']);
     gulp.watch(path.css, ['css']);
@@ -127,7 +134,7 @@ gulp.task('style', function (cb) {
 
 function gitmodified() {
     return gitmodified0(['added', 'modified', 'untracked', 'renamed', 'copied', 'updated but unmerged']);
-};
+}
 
 gulp.task('style-jscs', function () {
     return gulp.src(path.scripts)
