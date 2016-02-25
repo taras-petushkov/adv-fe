@@ -16,6 +16,8 @@ var jshint = require('gulp-jshint');
 var htmlhint = require("gulp-htmlhint");
 var htmlmin = require('gulp-htmlmin');
 var sourcemaps = require('gulp-sourcemaps');
+var gitmodified0 = require('gulp-gitmodified');
+var debug = require('gulp-debug');
 
 var srcDir = 'src';
 var buildDir = 'build';
@@ -26,6 +28,7 @@ var clientLibDir = clientDir + "/lib";
 var jsMapDir = 'maps';
 var cssMapDir = '.';
 var isProd = argv.prod;
+var isAll = argv.all;
 
 var path = {
     html: srcDir + '/**/*.html',
@@ -102,14 +105,22 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest(clientDir));
 });
 
+function gitmodified() {
+    return gitmodified0(['added','modified', 'untracked', 'renamed', 'copied', 'updated but unmerged']);
+};
+
 gulp.task('style-jscs', function () {
     return gulp.src(path.scripts)
+        .pipe(gulpIf(!isAll, gitmodified()))
+        .pipe(debug({ title: 'jscs' }))
         .pipe(jscs({ fix: true }))
         .pipe(gulp.dest(srcDir));
 });
 
 gulp.task('style-jshint', function () {
     return gulp.src(path.scripts)
+        .pipe(gulpIf(!isAll, gitmodified()))
+        .pipe(debug({ title: 'jshint' }))
         .pipe(jshint())
         .pipe(jshint.reporter('default', { verbose: true }))
         .pipe(jshint.reporter('fail'))
@@ -117,6 +128,8 @@ gulp.task('style-jshint', function () {
 
 gulp.task('style-htmlhint', function () {
     gulp.src(path.html)
+        .pipe(gulpIf(!isAll, gitmodified()))
+        .pipe(debug({ title: 'htmlhint' }))
         .pipe(htmlhint())
         .pipe(htmlhint.failReporter())
 });
