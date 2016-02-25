@@ -36,7 +36,7 @@ var isAll = argv.all;
 var path = {
     html: srcDir + '/**/*.html',
     images: srcDir + '/**/*.{png,jpg,svg}',
-    scripts: [srcDir + '/blocks/**/*.js', srcDir + '/*.js'],
+    scripts: srcDir + '/**/*.js',
     templates: srcDir + '/blocks/**/*.hbs',
     css: srcDir + '/**/*.less'
 };
