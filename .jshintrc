@@ -13,7 +13,6 @@
     "lastsemic": true,
     "strict": false,
     "browser": true,
-    "-W069": true,
     "globals": {
         "Handlebars": true,
         "$": true,
