@@ -9,7 +9,7 @@ https://nodejs.org/en/download/
 3. Install gulp
 ```sudo npm install -g gulp```
 4. Build the project
-```gulp```
+`gulp`
 
 ## Running the application
 1. Execute next command:
