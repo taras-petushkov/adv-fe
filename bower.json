@@ -8,10 +8,6 @@
     "homepage": "https://github.com/taras-petushkov/adv-fe",
     "dependencies": {
         "jquery": "2.2.1",
-        "handlebars": "4.0.5",
-        "underscore": "1.8.3",
-        "backbone": "^1.x",
-        "react": ">0.1.0",
-        "angular": "*"
+        "handlebars": "^3.0.0"
     }
 }

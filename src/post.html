@@ -2,75 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lesson 1</title>
-    <link rel="stylesheet" href="style.css"/>
+    <title>Lesson 3</title>
+    <link rel="stylesheet" href="/static/styles.css"/>
 </head>
 
-<body>
-<div class="layout">
-    <div class="header">
-        <div class="header-layout">
-            <div class="application-logo"></div>
-            <div class="application-text">
-                <div class="application-text__greeting">Forget about skirts, their time has gone...</div>
-                <div class="application-text__cta">Leggings rules the world!</div>
-            </div>
-            <div class="user-menu"></div>
-        </div>
+<body class="page">
+<div class="header">
+    <div class="logo header__logo"></div>
+    <div class="application-text header__text">
+        <div class="application-text__greeting">Forget about skirts, their time has gone...</div>
+        <div class="application-text__cta">Leggings rules the world!</div>
     </div>
-
-    <div class="content">
-        <div class="selected-post"></div>
-        <div class="related-posts__list"></div>
-    </div>
-
-    <div class="footer"></div>
 </div>
 
+<div class="content">
+    <div class="post"></div>
+    <div class="related-posts"></div>
+</div>
 
-<script type="text/x-handlebars-template" id="selected-post-template">
-    {{#with post}}
-        {{> post-preview class='selected-post__post'}}
-    {{/with}}
-    {{> comments class='selected-post__comments' item-class="selected-post__comment"}}
-</script>
+<div class="footer"></div>
 
-<script type="text/x-handlebars-template" id="comments-template">
-    <div class="{{class}}">
-        {{#each comments}}
-            {{> comment class=../item-class }}
-        {{/each}}
-    </div>
-</script>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/handlebars/handlebars.min.js"></script>
 
-<script type="text/x-handlebars-template" id="comment-template">
-    <div class="{{class}}">
-        <b>{{username}}</b>:{{text}}
-    </div>
-</script>
+<script src="/templates.js"></script>
+<script src="/app.js"></script>
 
-<script type="text/x-handlebars-template" id="related-posts__list-template">
-    {{#each posts}}
-        {{> post-preview class="related-posts__post" }}
-    {{/each}}
-</script>
-
-<!-- the same as in post.html TODO move it the separate file later or not?-->
-<script type="text/x-handlebars-template" id="post-template">
-    <div class="post-preview {{class}}" data-id="{{id}}">
-        <div class="post-preview__island">
-            <div class="post-preview__img-wrapper">
-                <img class="post-preview__img" src="{{imgUrl}}"/>
-            </div>
-            <div class="post-preview__description">{{description}}</div>
-        </div>
-    </div>
-</script>
-
-<script src="lib/jquery/dist/jquery.js"></script>
-<script src="lib/handlebars/handlebars.js"></script>
-<script src="data.js"></script>
-<script src="post.js"></script>
 </body>
-
 </html>

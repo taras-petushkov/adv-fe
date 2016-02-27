@@ -6,8 +6,10 @@ More details about the course can be found on http://frontend-science.com/advanc
 https://nodejs.org/en/download/
 2. Install components needed for node run:
 ```npm install```
-3. Install UI libs executing next command:
-```bower install```
+3. Install gulp
+```sudo npm install -g gulp```
+4. Build the project
+`gulp`
 
 ## Running the application
 1. Execute next command:
